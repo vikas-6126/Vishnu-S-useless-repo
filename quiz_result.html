@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Quiz Result | CyberAware{% endblock %}
+{% block content %}
+<p class="eyebrow">YOUR RESULT</p><h1 class="page-title">Quiz completed</h1>
+<div class="score-panel"><div class="score">{{ score }}<small>/ {{ total }}</small></div><p>{{ "Excellent work!" if score == total else "Review the explanations and try again." }}</p></div>
+{% for item in results %}
+<section class="question-card"><h3>{{ loop.index }}. {{ item.question }}</h3>
+<p class="{{ 'correct-text' if item.is_correct else 'wrong-text' }}">{{ "Correct" if item.is_correct else "Incorrect" }}</p>
+<p>Your answer: {{ item.selected }}</p><p>Correct answer: <strong>{{ item.correct }}</strong></p><p class="muted">{{ item.explanation }}</p></section>
+{% endfor %}
+<a class="btn primary" href="{{ url_for('quiz') }}">Try Again</a>
+{% endblock %}

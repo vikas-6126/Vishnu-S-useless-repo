@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}Demo Reports | CyberAware{% endblock %}
+{% block content %}
+<p class="eyebrow">DEMO ADMIN VIEW</p><h1 class="page-title">Submitted incident reports</h1>
+<div class="notice warning">This page has no authentication and is intended only for a local classroom demonstration. Never deploy it publicly as-is.</div>
+{% if reports %}
+<div class="table-wrap"><table><thead><tr><th>ID</th><th>Category</th><th>Description</th><th>Contact</th><th>Submitted</th></tr></thead><tbody>
+{% for r in reports %}<tr><td>{{ r.id }}</td><td>{{ r.category }}</td><td>{{ r.description }}</td><td>{{ r.contact or "—" }}</td><td>{{ r.created_at }}</td></tr>{% endfor %}
+</tbody></table></div>
+{% else %}<div class="panel">No reports submitted yet. Use the incident reporting form to add a demo entry.</div>{% endif %}
+{% endblock %}
