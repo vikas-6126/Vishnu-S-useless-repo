@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Quiz | CyberAware{% endblock %}
+{% block content %}
+<p class="eyebrow">KNOWLEDGE CHECK</p><h1 class="page-title">Cybersecurity awareness quiz</h1>
+<p class="lead">Choose one answer for each question. Your score and explanations will appear after submission.</p>
+<form method="POST" class="quiz-form">
+{% for q in questions %}
+  {% set qi = loop.index0 %}
+  <section class="question-card"><p class="question-number">QUESTION {{ loop.index }} / {{ questions|length }}</p><h3>{{ q.question }}</h3>
+  {% for option in q.options %}
+    <label class="option"><input type="radio" name="q{{ qi }}" value="{{ loop.index0 }}" required> <span>{{ option }}</span></label>
+  {% endfor %}
+  </section>
+{% endfor %}
+<button class="btn primary" type="submit">Submit Answers</button>
+</form>
+{% endblock %}

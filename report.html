@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Report Incident | CyberAware{% endblock %}
+{% block content %}
+<p class="eyebrow">REPORT SUSPICIOUS ACTIVITY</p><h1 class="page-title">Incident reporting form</h1>
+<div class="panel narrow">
+<form method="POST">
+  <label for="category">Incident category</label>
+  <select id="category" name="category" required>
+    <option value="">Choose a category</option><option>Phishing email or message</option><option>Suspicious website or link</option><option>Possible account compromise</option><option>Malware or unusual device activity</option><option>Other</option>
+  </select>
+  <label for="description">What happened?</label>
+  <textarea id="description" name="description" rows="5" maxlength="2000" required placeholder="Describe the suspicious activity. Do not include passwords, OTPs, or sensitive personal data."></textarea>
+  <label for="contact">Contact (optional; demo only)</label>
+  <input id="contact" name="contact" maxlength="120" placeholder="Optional email or contact detail">
+  <button class="btn primary" type="submit">Submit Demo Report</button>
+</form>
+</div>
+{% endblock %}

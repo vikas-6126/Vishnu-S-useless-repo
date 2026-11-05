@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block title %}Home | CyberAware{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-copy">
+    <p class="eyebrow">THINK BEFORE YOU CLICK</p>
+    <h1>Build safer<br><span>digital habits.</span></h1>
+    <p class="lead">A simple cybersecurity awareness portal to learn safe online practices, test your knowledge, check password strength, and understand how to report suspicious activity.</p>
+    <div class="actions">
+      <a class="btn primary" href="{{ url_for('learn') }}">Start Learning</a>
+      <a class="btn secondary" href="{{ url_for('quiz') }}">Take the Quiz</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="shield">✓</div>
+    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+    <div class="float-card">● Secure your accounts</div>
+    <div class="float-card second">● Spot suspicious links</div>
+  </div>
+</section>
+<h2 class="section-title">Explore the portal</h2>
+<div class="card-grid">
+  <a class="feature-card" href="{{ url_for('learn') }}"><div class="icon">01</div><h3>Awareness Library</h3><p>Learn about phishing, malware, Wi-Fi safety, MFA, and social engineering.</p><span>Explore topics →</span></a>
+  <a class="feature-card" href="{{ url_for('quiz') }}"><div class="icon">02</div><h3>Knowledge Quiz</h3><p>Answer practical questions and review explanations for each answer.</p><span>Test yourself →</span></a>
+  <a class="feature-card" href="{{ url_for('password_checker') }}"><div class="icon">03</div><h3>Password Checker</h3><p>Get a basic strength estimate and tips for creating stronger passwords.</p><span>Check strength →</span></a>
+  <a class="feature-card" href="{{ url_for('report') }}"><div class="icon">04</div><h3>Incident Reporting</h3><p>Submit a sample report about a suspicious email, link, or account activity.</p><span>Report an issue →</span></a>
+</div>
+<div class="notice"><strong>Important:</strong> This is an academic demonstration. Do not enter real passwords or confidential personal information. The incident form is a local demo and is not monitored by a security team.</div>
+{% endblock %}
